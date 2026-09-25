@@ -1258,6 +1258,39 @@ body::after{
   opacity: 1;
 }
 
+/* ---------- 16. Tombol "Lihat Proyek" pada setiap project card ---------- */
+.proj-link-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  width:100%;
+  margin-top:12px;
+  padding:11px;
+  border-radius:12px;
+  background: var(--cyan-soft);
+  border:1px solid rgba(53,199,214,0.35);
+  color: var(--cyan);
+  font-weight:700;
+  font-size:12.5px;
+  letter-spacing:.2px;
+  text-decoration:none;
+  cursor:pointer;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.proj-link-btn svg{
+  width:13px;
+  height:13px;
+  transition: transform 0.2s ease;
+}
+.proj-link-btn:hover{
+  transform: translateY(-2px);
+  background: rgba(53,199,214,0.2);
+  box-shadow: 0 8px 18px rgba(53,199,214,0.18);
+}
+.proj-link-btn:hover svg{ transform: translate(2px,-2px); }
+.proj-link-btn:active{ transform: translateY(0) scale(0.98); }
+
 /* ---------- 15. GPA value berkedip halus untuk menarik perhatian ---------- */
 .gpa-value{
   animation: text-pulse 3s ease-in-out infinite;
