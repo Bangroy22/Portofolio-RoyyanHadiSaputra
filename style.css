@@ -1389,3 +1389,9 @@ html, body, .phone, .card, .body-card, .principle-item, .exp-card,
   background: rgba(10,118,136,0.16);
   box-shadow: 0 8px 18px rgba(10,118,136,0.16);
 }
+
+/* ---------- Fix: hover kartu kontak masih gelap saat light mode ---------- */
+:root[data-theme="light"] .contact-card:hover{
+  background: #eef3f6;
+  border-color: rgba(14,151,168,0.35);
+}
