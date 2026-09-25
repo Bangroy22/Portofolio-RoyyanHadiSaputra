@@ -5,6 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Keahlian &amp; Proyek — Royyan Hadi Saputra</title>
+  <script>
+    (function(){
+      try{
+        if (localStorage.getItem('theme') === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch(e){}
+    })();
+  </script>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,6 +27,15 @@
         <p>Portofolio</p>
       </div>
       <div class="top-actions">
+        <div class="icon-btn theme-toggle" id="themeToggle" title="Ganti tema">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </div>
         <div class="icon-btn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 21V4a1 1 0 0 1 1-1h11l4 4v9a1 1 0 0 1-1 1H5" />
@@ -364,7 +382,24 @@
 
   </div>
 
+  <script>
+    (function(){
+      var btn = document.getElementById('themeToggle');
+      if(!btn) return;
+      btn.addEventListener('click', function(){
+        var root = document.documentElement;
+        var isLight = root.getAttribute('data-theme') === 'light';
+        if(isLight){
+          root.removeAttribute('data-theme');
+          try{ localStorage.setItem('theme', 'dark'); }catch(e){}
+        } else {
+          root.setAttribute('data-theme', 'light');
+          try{ localStorage.setItem('theme', 'light'); }catch(e){}
+        }
+      });
+    })();
+  </script>
   <script src="script.js"></script>
 </body>
 
-</html>
+</html>  
