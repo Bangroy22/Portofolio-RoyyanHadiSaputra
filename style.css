@@ -1299,3 +1299,93 @@ body::after{
   0%,100%{ text-shadow: 0 0 0 rgba(62,207,126,0); }
   50%{ text-shadow: 0 0 10px rgba(62,207,126,0.5); }
 }
+/* =========================================================
+   LIGHT MODE — toggle via [data-theme="light"] on <html>
+   Semua rule di atas TIDAK diubah; tema terang cukup
+   meng-override variabel warna + beberapa gradient/hover
+   yang tadinya di-hardcode untuk background gelap.
+   ========================================================= */
+:root[data-theme="light"]{
+  --bg: #f4f7fa;
+  --bg-soft: #eef2f6;
+  --card: #ffffff;
+  --card-2: #f3f6f9;
+  --border: rgba(15,23,32,0.10);
+  --border-soft: rgba(15,23,32,0.07);
+  --text: #16212b;
+  --text-dim: #56636f;
+  --text-dimmer: #8894a0;
+  --cyan: #0e97a8;
+  --cyan-soft: rgba(14,151,168,0.10);
+  --green: #1f9a5c;
+  --green-soft: rgba(31,154,92,0.10);
+  --amber: #a9740a;
+}
+
+:root[data-theme="light"] .hero-card{ background: linear-gradient(180deg, #ffffff, #f2f6f9); }
+:root[data-theme="light"] .bottom-nav{ background: rgba(255,255,255,0.88); }
+:root[data-theme="light"] .doc-thumb{ background: linear-gradient(135deg,#e8edf1,#f7f9fb); }
+:root[data-theme="light"] .principle-item:hover{ background: #eef3f6; }
+:root[data-theme="light"] .quote-block{ color: #0d6b78; }
+:root[data-theme="light"] .avatar{ background: #e4e9ed; border-color: rgba(15,23,32,0.08); }
+
+:root[data-theme="light"] .pill:hover,
+:root[data-theme="light"] .body-card:hover,
+:root[data-theme="light"] .edu-card:hover,
+:root[data-theme="light"] .skills-card:hover,
+:root[data-theme="light"] .hard-item:hover{
+  border-color: rgba(15,23,32,0.18);
+}
+:root[data-theme="light"] .btn-secondary:hover{ border-color: rgba(15,23,32,0.24); }
+
+:root[data-theme="light"] body::before{ background: radial-gradient(circle, rgba(14,151,168,0.10), transparent 70%); }
+:root[data-theme="light"] body::after{ background: radial-gradient(circle, rgba(31,154,92,0.09), transparent 70%); }
+
+/* Transisi halus saat ganti tema */
+html, body, .phone, .card, .body-card, .principle-item, .exp-card,
+.skills-card, .contact-card, .edu-card, .dossier-card, .hero-card,
+.hard-item, .icon-btn, .pill, .badge-soft, .bottom-nav{
+  transition: background-color .35s ease, color .35s ease, border-color .35s ease;
+}
+
+/* ---------- Tombol toggle tema (ikon matahari / bulan) ---------- */
+.theme-toggle .icon-sun{ display:block; }
+.theme-toggle .icon-moon{ display:none; }
+:root[data-theme="light"] .theme-toggle .icon-sun{ display:none; }
+:root[data-theme="light"] .theme-toggle .icon-moon{ display:block; }
+
+/* ---------- Fix: bagian bawah proj-card (proj-body) ikut gelap saat light mode ---------- */
+:root[data-theme="light"] .proj-card{
+  background: linear-gradient(180deg, #ffffff, #f4f7fa);
+  border-color: rgba(15,23,32,0.12);
+  box-shadow: 0 10px 30px rgba(15,23,32,0.10);
+}
+:root[data-theme="light"] .proj-card:hover{
+  border-color: rgba(14,151,168,0.45);
+  box-shadow: 0 16px 38px rgba(15,23,32,0.14), 0 0 22px rgba(14,151,168,0.10);
+}
+:root[data-theme="light"] .stat-box{
+  background: var(--card-2);
+  border-color: rgba(15,23,32,0.10);
+}
+
+/* ---------- Fix kontras teks cyan pada badge/tag proyek saat light mode ---------- */
+:root[data-theme="light"] .proj-category{
+  color: #0a7688;
+  border-color: rgba(10,118,136,0.35);
+  background: rgba(10,118,136,0.10);
+}
+:root[data-theme="light"] .tag-chip{
+  color: #0a7688;
+  background: rgba(10,118,136,0.12);
+  border-color: rgba(10,118,136,0.28);
+}
+:root[data-theme="light"] .proj-link-btn{
+  color: #0a7688;
+  background: rgba(10,118,136,0.10);
+  border-color: rgba(10,118,136,0.35);
+}
+:root[data-theme="light"] .proj-link-btn:hover{
+  background: rgba(10,118,136,0.16);
+  box-shadow: 0 8px 18px rgba(10,118,136,0.16);
+}
